@@ -4,7 +4,7 @@ public class HumanFactory {
 
 	public HumanUnit getUnit (String unitType)
 	{
-		if (unitType == null)
+		if (unitType == "")
 		{
 			return null;
 		}
