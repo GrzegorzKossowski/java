@@ -1,0 +1,16 @@
+package builder;
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Castle castle = CastleBuilder.createCastle();
+		castle.getStatus();
+
+	}
+
+}
