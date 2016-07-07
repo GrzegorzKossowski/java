@@ -1,10 +1,11 @@
 # Simple text encryptor.
-Development version - v 0.1.1
-author: Grzegorz Kossowski 2016
+Development version v0.1.1 (2016-07-07)
+- author: Grzegorz Kossowski
 ----
 It is a simple application to encrypt & decrypt texts using a password.
 
-TODO:
+**TODO:**
+
 - load, save txt files
 - load, save dat files
 - use more eventlisteners
