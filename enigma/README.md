@@ -1,7 +1,7 @@
 # Simple text encryptor.
 Development version - v 0.1.1
-@author: Grzegorz Kossowski
-@date: 2016-07-07
+author: Grzegorz Kossowski
+date: 2016-07-07
 ----
 It is a simple application to encrypt & decrypt texts using a password.
 
