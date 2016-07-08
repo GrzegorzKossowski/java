@@ -63,21 +63,8 @@ public class MD5Digest {
 			charValue += (int) arrayList.get(counter);
 			charArray[i] = (char) charValue;			 
 			counter++;
-			
-//			System.out.println(counter + " "
-//					+ temp 
-//					+ " "
-//					+ (int) temp
-//					+ " "
-//					+ charArray[i]
-//					+ (int) charArray[i]
-//					+ " "					
-//					+ charValue);
-			
 
 		}
-//		System.out.println(arrayList.toString());
-		
 		
 		return new String().valueOf(charArray);
 		
@@ -101,20 +88,7 @@ public static String decrypt(String string, ArrayList<Integer> arrayList) {
 			charArray[i] = (char) charValue;			 
 			counter++;
 			
-//			System.out.println(counter + " "
-//					+ temp 
-//					+ " "
-//					+ (int) temp
-//					+ " "
-//					+ charArray[i]
-//					+ (int) charArray[i]
-//					+ " "					
-//					+ charValue);
-			
-
 		}
-//		System.out.println(arrayList.toString());
-		
 		
 		return new String().valueOf(charArray);
 		

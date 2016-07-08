@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
 	
 	public MainPanel() {
 		
-		
+		//szyfrowanie
 		encryptBtn = new JButton("Encrypt");
 		encryptBtn.addActionListener(new ActionListener(){
 
@@ -38,6 +38,7 @@ public class MainPanel extends JPanel {
 			}
 			
 		});
+		//deszyfrowanie
 		decryptBtn = new JButton("Decrypt");
 		decryptBtn.addActionListener(new ActionListener() {
 
@@ -59,6 +60,18 @@ public class MainPanel extends JPanel {
 		
 		drawGridBagLayout(gc);
 		
+	}
+	
+	public DisplayTextPanel getDisplayTextPanel() {
+		return displayTextPanel;
+	}
+	
+	public EditTextPanel getEditTextPanel() {
+		return editTextPanel;
+	}
+	
+	public PasswdBarPanel getPassBar() {
+		return passBar;
 	}
 
 	private void drawGridBagLayout(GridBagConstraints gc) {
@@ -118,5 +131,4 @@ public class MainPanel extends JPanel {
 		add(encryptBtn, gc);
 	}
 	
-
 }
