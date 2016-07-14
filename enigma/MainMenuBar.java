@@ -39,6 +39,7 @@ public class MainMenuBar extends JMenuBar {
 	public MainMenuBar() {
 
 		fileChooser = new JFileChooser();
+		setFileChooser();
 		
 		menuFile = new JMenu("File");
 		itemOpenFile = new JMenuItem("Open File");
@@ -53,8 +54,8 @@ public class MainMenuBar extends JMenuBar {
 		itemQuit.setMnemonic(KeyEvent.VK_Q);
 		itemQuit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
-		itemOpenFile.setEnabled(false);
-		itemSaveFile.setEnabled(false);
+//		itemOpenFile.setEnabled(false);
+//		itemSaveFile.setEnabled(false);
 		
 		menuFile.add(itemOpenFile);
 		menuFile.add(itemSaveFile);
@@ -100,34 +101,7 @@ public class MainMenuBar extends JMenuBar {
 
 		itemOpenFile.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				fileChooser.setAcceptAllFileFilterUsed(false);				
-				fileChooser.setFileFilter(new FileFilter() {
-					
-					String[] okFileExtensions = new String[] {"txt", "dat"};
-					
-					@Override
-					public String getDescription() {
-						// TODO Auto-generated method stub
-						return "Text files (*.txt, *.dat)";
-					}
-					
-					@Override
-					public boolean accept(File f) {
-
-						if (f.isDirectory()) {
-				            return true;
-				        }
-						for (String extension : okFileExtensions)
-					    {
-					      if (f.getName().toLowerCase().endsWith(extension))
-					      {
-					        return true;
-					      }
-					    }
-					    return false;						
-					}
-				});
+			public void actionPerformed(ActionEvent e) {				
 				
 				if(fileChooser.showOpenDialog(MainMenuBar.this) == JFileChooser.APPROVE_OPTION) {
 					MainEvent mev = new MainEvent(this, "LOADFILE", fileChooser.getSelectedFile());
@@ -136,11 +110,13 @@ public class MainMenuBar extends JMenuBar {
 					}	
 				}
 			}
+			
 		});
 
 		itemSaveFile.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {				
+			public void actionPerformed(ActionEvent e) {
+				
 				if(fileChooser.showSaveDialog(MainMenuBar.this) == JFileChooser.APPROVE_OPTION) {
 					MainEvent mev = new MainEvent(this, "SAVEFILE", fileChooser.getSelectedFile());
 					if (menuListener != null) {
@@ -212,7 +188,7 @@ public class MainMenuBar extends JMenuBar {
 
 				JOptionPane
 						.showMessageDialog(
-								null, "Enigmator v. 0.1.1\n" + "Grzegorz Kossowski - 2016\n"
+								null, "Enigmator v. 0.2.1\n" + "Grzegorz Kossowski - 2016\n"
 										+ "This is a toy. Encryption\n" + "is NOT fully secure!",
 								"About", JOptionPane.INFORMATION_MESSAGE);
 
@@ -222,6 +198,40 @@ public class MainMenuBar extends JMenuBar {
 
 	public void setMenuListener(MainMenuListener menuListener) {
 		this.menuListener = menuListener;
+	}
+	
+	
+	private void setFileChooser() {
+		
+		fileChooser.setAcceptAllFileFilterUsed(false);				
+		fileChooser.setFileFilter(new FileFilter() {
+			
+			String[] okFileExtensions = new String[] {"txt"};
+//			String[] okFileExtensions = new String[] {"txt", "dat"};
+			
+			@Override
+			public String getDescription() {
+				// TODO Auto-generated method stub
+				return "Text files (*.txt)";
+//				return "Text files (*.txt, *.dat)";
+			}
+			
+			@Override
+			public boolean accept(File f) {
+
+				if (f.isDirectory()) {
+		            return true;
+		        }
+				for (String extension : okFileExtensions)
+			    {
+			      if (f.getName().toLowerCase().endsWith(extension))
+			      {
+			        return true;
+			      }
+			    }
+			    return false;						
+			}
+		});
 	}
 
 }

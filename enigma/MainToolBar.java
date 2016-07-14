@@ -3,12 +3,15 @@ package com.grze.enigma;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+import javax.swing.filechooser.FileFilter;
 
 public class MainToolBar extends JPanel {
 
@@ -19,14 +22,20 @@ public class MainToolBar extends JPanel {
 	private JButton encrypt;
 	private JButton swap;
 	private JButton clipboard;
+	private JButton clearText;
 	
 	//listener
 	private MainToolBarListener toolBarListener;
+	
+	private JFileChooser fileChooser;
 	
 	public MainToolBar() {
 		super(new BorderLayout());		
 		toolBar = new JToolBar();
 		add(toolBar);
+		
+		fileChooser = new JFileChooser();
+		setFileChooser();
 		
 		openFile = makeButton("open", "Open", "");
 		toolBar.add(openFile);
@@ -42,11 +51,36 @@ public class MainToolBar extends JPanel {
 		toolBar.addSeparator();
 		clipboard = makeButton("clipboard", "Copy result to clipboard", "");
 		toolBar.add(clipboard);
-		
-		openFile.setEnabled(false);
-		saveFile.setEnabled(false);
+		toolBar.addSeparator();
+		clearText = makeButton("clear", "Clear ", "");
+		toolBar.add(clearText);
 		
 		//listeners
+		
+		openFile.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if(fileChooser.showOpenDialog(MainToolBar.this) == JFileChooser.APPROVE_OPTION) {
+					MainEvent mev = new MainEvent(this, "LOADFILE", fileChooser.getSelectedFile());
+					if (toolBarListener != null) {
+						toolBarListener.toolBarEventOcurred(mev);
+					}	
+				}				
+			}			
+		});
+		
+		saveFile.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+							
+				if(fileChooser.showSaveDialog(MainToolBar.this) == JFileChooser.APPROVE_OPTION) {
+					MainEvent mev = new MainEvent(this, "SAVEFILE", fileChooser.getSelectedFile());
+					if (toolBarListener != null) {
+						toolBarListener.toolBarEventOcurred(mev);
+					}	
+				}
+			}
+		});
 		
 		decrypt.addActionListener(new ActionListener() {
 			
@@ -89,7 +123,17 @@ public class MainToolBar extends JPanel {
 			}
 		});
 		
-	}
+		clearText.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MainEvent mev = new MainEvent(this, "CLEARCONTENT");
+				if(toolBarListener!=null) {
+					toolBarListener.toolBarEventOcurred(mev);
+				}				
+			}
+		});
+		
+	}	//end constructor
 
 	protected JButton makeButton(String imageName, String toolTipText, String altText) {
 		// Look for the image.
@@ -114,6 +158,39 @@ public class MainToolBar extends JPanel {
 	
 	public void setToolBarListener(MainToolBarListener toolBarListener) {
 		this.toolBarListener = toolBarListener;
+	}
+	
+private void setFileChooser() {
+		
+		fileChooser.setAcceptAllFileFilterUsed(false);				
+		fileChooser.setFileFilter(new FileFilter() {
+			
+			String[] okFileExtensions = new String[] {"txt"};
+//			String[] okFileExtensions = new String[] {"txt", "dat"};
+			
+			@Override
+			public String getDescription() {
+
+				return "Text files (*.txt)";
+//				return "Text files (*.txt, *.dat)";
+			}
+			
+			@Override
+			public boolean accept(File f) {
+
+				if (f.isDirectory()) {
+		            return true;
+		        }
+				for (String extension : okFileExtensions)
+			    {
+			      if (f.getName().toLowerCase().endsWith(extension))
+			      {
+			        return true;
+			      }
+			    }
+			    return false;						
+			}
+		});
 	}
 	
 }
