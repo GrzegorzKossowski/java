@@ -27,7 +27,9 @@ public class DBUser implements Serializable {
     @Column(name = "password")
     private String password;
     @Column(name = "priviledge")
-    private int priviledge;
+    private Integer priviledge;
+    @Column(name = "description")
+    private String description;
 
     @Transient
     private String message;
@@ -50,6 +52,19 @@ public class DBUser implements Serializable {
         this.priviledge = priviledge;
     }
 
+    public DBUser(String login, Integer priviledge, String description) {
+        this.login = login;
+        this.priviledge = priviledge;
+        this.description = description;
+    }
+
+    public DBUser(String login, String password, Integer priviledge, String description) {
+        this.login = login;
+        this.password = password;
+        this.priviledge = priviledge;
+        this.description = description;
+    }
+    
     //validate
     public boolean dbValidate(String login, String passwd) {
 
@@ -110,13 +125,6 @@ public class DBUser implements Serializable {
     }
 
     //getters setters
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public int getIdUser() {
         return idUser;
@@ -142,17 +150,34 @@ public class DBUser implements Serializable {
         this.password = password;
     }
 
-    public int getPriviledge() {
+    public Integer getPriviledge() {
         return priviledge;
     }
 
-    public void setPriviledge(int priviledge) {
+    public void setPriviledge(Integer priviledge) {
         this.priviledge = priviledge;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+
     @Override
     public String toString() {
-        return "User{" + "login=" + login + ", password=" + password + ", priviledge=" + priviledge + '}';
+        return "User{" + "log=" + login + ", pass=" + password + ", priv=" + priviledge + ", des=" + description + "}";
     }
 
 }

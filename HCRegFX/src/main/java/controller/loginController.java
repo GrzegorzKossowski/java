@@ -14,13 +14,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.DBUser;
+import util.FormController;
 
 public class loginController implements Initializable {
 
     @FXML
     private Button loginBtn;
-    @FXML
-    private Button cancelBtn;
     @FXML
     private TextField loginTextField;
     @FXML
