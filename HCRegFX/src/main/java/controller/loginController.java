@@ -50,11 +50,12 @@ public class loginController implements Initializable {
 
         DBUser user = new DBUser(login, passwd);
 
-        if (user.validate(login, passwd)) {
-
+        if(FormController.validateLogin(login) &&
+                FormController.validatePassword(passwd)) {
+            
+            //TODO: przeniesc walidacje usera do kontrolera Hibernate
             if (user.dbValidate(login, passwd)) {
 
-                System.out.println(user.getPriviledge());
                 showAppPanel(user.getPriviledge());
                 user.setMessage("");
                 messageLbl.setText("");
@@ -67,7 +68,7 @@ public class loginController implements Initializable {
 
         } else {
             
-            messageLbl.setText(user.getMessage());
+            messageLbl.setText(FormController.getMessage());
             
         }
 

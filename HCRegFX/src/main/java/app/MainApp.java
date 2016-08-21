@@ -14,8 +14,8 @@ public class MainApp extends Application {
     public void start(Stage stage) {
 
         try {
-//            Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+//            Parent root = FXMLLoader.load(getClass().getResource("/fxml/admin.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/styles/app.css");
 

@@ -5,18 +5,24 @@
  */
 package util;
 
-import app.EPriviledges;
-
 /**
  *
  * @author grze
  */
 public class FormController {
+    
+    private static String message = "Deklaracja message";
 
     public static boolean validateLogin(String login) {
 
         String pattern = "[\\w+]{8,}";
-        return login.matches(pattern);
+        
+        if (login.matches(pattern))  {
+            return true;
+        } else {
+            message = "Login baaadddd";
+            return false;
+        }
 
     }
 
@@ -26,8 +32,14 @@ public class FormController {
         //String pattern = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})";
         // temporary simple passwd check
         String pattern = "[\\w]{8,}";
-        return passwd.matches(pattern);
-
+        
+        if (passwd.matches(pattern)) {            
+            return true;
+        } else {
+            message = "Password baaad";
+            return false;
+        }
+        
     }
 
     public static boolean validateComboBox(Object value) {
@@ -53,6 +65,12 @@ public class FormController {
                 
         }
 
+    }
+
+    public static String getMessage() {
+        
+        return message;
+        
     }
 
 }

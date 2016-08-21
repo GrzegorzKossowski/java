@@ -106,24 +106,6 @@ public class DBUser implements Serializable {
         return false;
     }
 
-    public boolean validate(String login, String passwd) {
-
-        return (validateLogin(login) || validatePassword(passwd));
-
-    }
-
-    private boolean validateLogin(String login) {
-        //TODO: login valdation
-        setMessage(getMessage() + "Login OK. ");
-        return true;
-    }
-
-    private boolean validatePassword(String passwd) {
-        //TODO: passwd validation
-        setMessage(getMessage() + "Pass OK. ");
-        return true;
-    }
-
     //getters setters
 
     public int getIdUser() {
@@ -177,7 +159,7 @@ public class DBUser implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "log=" + login + ", pass=" + password + ", priv=" + priviledge + ", des=" + description + "}";
+        return "User{"+ idUser + ", " + login + ", " + password + ", " + priviledge + ", " + description + "}";
     }
 
 }
