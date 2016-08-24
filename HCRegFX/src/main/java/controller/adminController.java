@@ -30,32 +30,68 @@ import util.HibernateController;
 
 public class adminController implements Initializable {
 
+    /**
+     * Glowny kontener okna
+     */
     @FXML
-    private VBox mainRoot;
+    private VBox mainRoot;    
+    /**
+     * Tablica uzytkownikow systemu
+     */
     @FXML
     private TableView<DBUser> tableView;
+    /**
+     * Kolumna loginow uzytkownikow systemu
+     */
     @FXML
     private TableColumn<DBUser, String> loginColumn;
+    /**
+     * Kolumna poziomu dostepu uzytkownika
+     */
     @FXML
     private TableColumn<DBUser, Integer> privColumn;
+    /**
+     * Kolumna opisu uzytkownika
+     */
     @FXML
     private TableColumn<DBUser, String> descColumn;
+    /**
+     * Pole wpisu loginu nowego uzytkownika
+     */
     @FXML
     private TextField loginTextField;
+    /**
+     * Pole wpisu hasla nowego uzytkownika
+     */
     @FXML
     private PasswordField passwdField;
+    /**
+     * Pole opisu nowego uzytkownika
+     */
     @FXML
     private TextArea descTextArea;
+    /**
+     * Combo wybour poziomu dostepu do bazy
+     */
     @FXML
     private ComboBox privComboBox;
+    /**
+     * Button dodawania nowego uzytkownika
+     */
     @FXML
     private Button addUserBtn;
 
     //others
+    /**
+     * Tymczasowy uzytkowink
+     */
     private DBUser tmpUser;
 
+    /**
+     * Lista uzytkowikow pobranych z bazy do wyswietlenia w tabeli
+     */
     final ObservableList<DBUser> data = FXCollections.observableArrayList();
-    final ObservableList<String> privBox = FXCollections.observableArrayList();
+    //final ObservableList<String> privBox = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,8 +166,13 @@ public class adminController implements Initializable {
             privComboBox.setValue("----");
 
         } else {
-            //TODO: info na temat validacji formularza
-            System.out.println("info na temat validacji formularza");
+            
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Add new user");
+            alert.setHeaderText(null);
+            alert.setContentText("Fill all form fields properly.");
+            alert.showAndWait();
+            
         }
 
     }

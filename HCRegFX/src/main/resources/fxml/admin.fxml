@@ -31,12 +31,12 @@
                                 <MenuItem accelerator="Ctrl+Q" mnemonicParsing="false" onAction="#quitAction" text="Quit" />
                             </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="Edit" disable="true" >
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Delete" />
                             </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
+                        <Menu mnemonicParsing="false" text="Help" disable="true" >
                             <items>
                                 <MenuItem mnemonicParsing="false" text="About" />
                             </items>
