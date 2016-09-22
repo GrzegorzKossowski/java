@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <chapter id="1">
+        <word>board</word>
+        <word>book</word>
+        <word>boy</word>
+        <word>cat</word>
+        <word>children</word>
+        <word>classroom</word>
+        <word>dog</word>
+        <word>frog</word>
+        <word>girl</word>
+        <word>mouse</word>
+        <word>pen</word>
+        <word>pencil-case</word>
+        <word>pencil</word>
+        <word>rubber</word>
+        <word>ruler</word>
+        <word>school-bag</word>
+        <word>school</word>        
+        <word>teacher</word>
+    </chapter>
+    <chapter id="2">        
+        <word>arm</word>
+        <word>clap</word>
+        <word>dinosaur</word>
+        <word>ears</word>
+        <word>eyes</word>
+        <word>fingers</word>
+        <word>floor</word>
+        <word>hands</word>
+        <word>head</word>
+        <word>knees</word>
+        <word>leg</word>
+        <word>lion</word>
+        <word>look</word>
+        <word>monster</word>
+        <word>mouth</word>
+        <word>nose</word>
+        <word>point</word>
+        <word>sayit</word>
+        <word>shoe</word>
+        <word>shoulders</word>
+        <word>tail</word>
+        <word>toes</word>
+        <word>touch</word>        
+    </chapter>
+    <chapter id="3">      
+        <word>shoulders</word>
+        <word>tail</word>
+        <word>toes</word>
+        <word>touch</word>  
+        <word>board</word>
+        <word>book</word>
+        <word>boy</word>
+        <word>cat</word>
+    </chapter>
+</root>

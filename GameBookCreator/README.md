@@ -8,8 +8,6 @@ Wersja rozwojowa...
 
 **TODO:**
 
-- edycja rozdziałów
-- nadawanie właściwości rozdziałom (np. flag)
 - zapisywanie stanu oraz eksport gamebooka do txt, rtf, pdf(?), epub itp.
 - ładowanie stanu oraz import(?)
 - drzewo zależności(?)

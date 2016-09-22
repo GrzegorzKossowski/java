@@ -2,10 +2,9 @@
     
 }
 
-#testBtn {
-/*    -fx-background-image: url("../icons/folder.png");
-    -fx-background-size: 100% 100%;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-color: transparent;    */
+#saveContentBtn {
+    
+    -fx-background-color: #ff0033;
+    -fx-text-fill: white;    
+
 }

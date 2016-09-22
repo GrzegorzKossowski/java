@@ -5,42 +5,80 @@
  */
 package model;
 
-import java.util.Random;
+import app.Flags;
+import java.io.Serializable;
 
 /**
  *
  * @author grze
  */
-public class Chapter {
-    
-    private Integer id;
-    private String flag;
+public class Chapter implements Serializable {
+
+    //how many chapters
+    private static Integer count = 0;
+
+    public static void setCount(int size) {
+        count = size;
+    }
+
+    private Integer id; //unique id
+    private Integer number; //chapters number
+    private Flags flag; //chapters flag eg. DEAD "end"
     private String title;
-    private String content;
+    private String content; //chapters text contetn
+    private boolean fixed;  // can't be shuffled
 
     public Chapter() {
     }
 
-    public Chapter(Integer id, String flag, String title) {
-        this.id = id;
+    public Chapter(Chapter c) {
+        this.id = c.getId();
+        this.number = c.getNumber();
+        this.flag = c.getFlag();
+        this.fixed = c.isFixed();
+        this.title = c.getTitle();
+        this.content = c.getContent();
+    }
+
+    public Chapter(Flags flag, String title) {
+        count++;
+        this.id = count;
+        this.number = count;
         this.flag = flag;
         this.title = title;
-        this.content = "Bla bla bla bla bla";
+        this.content = "Let the story continue...";
+        this.fixed = false;
+    }
+
+    public Chapter(Boolean fixed, Flags flag, String title) {
+        count++;
+        this.id = count;
+        this.number = count;
+        this.flag = flag;
+        this.title = title;
+        this.content = "Let the story continue...";
+        this.fixed = fixed;
+    }
+
+    public Chapter(Integer number, Boolean fixed, Flags flag, String title) {
+        count++;
+        this.id = count;
+        this.number = number;
+        this.flag = flag;
+        this.title = title;
+        this.content = "Let the story continue...";
+        this.fixed = fixed;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getFlag() {
+    public Flags getFlag() {
         return flag;
     }
 
-    public void setFlag(String flag) {
+    public void setFlag(Flags flag) {
         this.flag = flag;
     }
 
@@ -52,11 +90,34 @@ public class Chapter {
         this.title = title;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public boolean isFixed() {
+        return fixed;
+    }
+
+    public void setFixed(boolean fixed) {
+        this.fixed = fixed;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
-        return "Chapter{" + "id=" + id + ", flag=" + flag + ", title=" + title + '}';
+        return String.format("id: %d (%s) [%d] %s {%b}",
+                getId(), getFlag().toString(), getNumber(), getTitle(), isFixed());
     }
-    
-        
-    
+
 }
