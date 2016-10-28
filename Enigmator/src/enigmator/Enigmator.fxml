@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox id="mainVbox" styleClass="mainFxmlClass" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="enigmator.EnigmatorController">
+    <HBox >
+        <children>
+            <MenuBar HBox.hgrow="ALWAYS" >
+                <menus>
+                    <Menu text="File" >
+                        <MenuItem fx:id="openMenuItem" text="Open" 
+                                  onAction="#openFileAction" accelerator="Ctrl+O"   />
+                        <MenuItem fx:id="saveMenuItem" text="Save" 
+                                  onAction="#saveFileAction" accelerator="Ctrl+S"   />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="quitMenuItem" text="Quit" 
+                                  onAction="#quitAction" accelerator="Ctrl+Q"   />
+                    </Menu>
+                    <Menu text="Tools" >
+                        <MenuItem fx:id="encryptMenuItem" text="Encrypt" 
+                                  onAction="#encryptAction" accelerator="Ctrl+E"   />
+                        <MenuItem fx:id="decryptMenuItem" text="Decrypt" 
+                                  onAction="#decryptAction" accelerator="Ctrl+D"   />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="copyMenuItem" text="Copy" 
+                                  onAction="#copyAction" accelerator="Ctrl+C"   />
+                        <MenuItem fx:id="pasteMenuItem" text="Paste" 
+                                  onAction="#pasteAction" accelerator="Ctrl+V"   />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="swapMenuItem" text="Swap" 
+                                  onAction="#swapAction" />
+                        <MenuItem fx:id="clearMenuItem" text="Clear" 
+                                  onAction="#clearAction" accelerator="Ctrl+X"   />
+                    </Menu>
+                    <Menu text="Help" >
+                        <MenuItem fx:id="aboutMenuItem" text="About" 
+                                  onAction="#aboutAction" accelerator="Ctrl+H"   />
+                    </Menu>                    
+                </menus>
+            </MenuBar>
+        </children>
+    </HBox>
+    <ToolBar >
+        <Button fx:id="openBtn" onAction="#openFileAction" >
+            <graphic>
+                <ImageView >
+                    <Image url="@resources/open.png"/>
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Open" />
+            </tooltip>
+        </Button>
+        <Button fx:id="saveBtn" onAction="#saveFileAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/save.png" />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Save" />
+            </tooltip>
+        </Button>
+        <Separator />
+        <Button fx:id="encryptBtn" onAction="#encryptAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/encrypt.png" />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Encrypt" /> 
+            </tooltip>
+        </Button>
+        <Button fx:id="decryptBtn" onAction="#decryptAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/decrypt.png" />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Decrypt" /> 
+            </tooltip>
+        </Button>
+        <Separator />
+        <Button fx:id="copyBtn" onAction="#copyAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/copy.png"  />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Copy" /> 
+            </tooltip>
+        </Button>
+        <Button fx:id="pasteBtn" onAction="#pasteAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/paste.png" />
+                </ImageView>
+            </graphic>
+            <tooltip>
+                <Tooltip text="Paste" /> 
+            </tooltip>
+        </Button>
+        <Separator />
+        <Button fx:id="swapBtn" onAction="#swapAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/swap.png" />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Swap" /> 
+            </tooltip>
+        </Button>
+        <Button fx:id="clearBtn" onAction="#clearAction">
+            <graphic>
+                <ImageView>                    
+                    <Image url="@resources/clear.png" />
+                </ImageView>    
+            </graphic>
+            <tooltip>
+                <Tooltip text="Clear" /> 
+            </tooltip>
+        </Button>
+    </ToolBar>
+    <VBox spacing="10" VBox.vgrow="ALWAYS"  >
+        <HBox alignment="CENTER" spacing="20" >
+            <padding>
+                <Insets top="10" />
+            </padding>
+            <children>
+                <Label text="Password" alignment="CENTER_RIGHT"  />
+                <PasswordField fx:id="passwordField" alignment="CENTER_LEFT"  />
+            </children>            
+        </HBox>
+        <HBox VBox.vgrow="ALWAYS"  >
+            <children>
+                <SplitPane HBox.hgrow="ALWAYS"  >
+                    <TextArea fx:id="inputText" wrapText="true"  >Lorem ipsum</TextArea>
+                    <TextArea fx:id="outputText" wrapText="true" editable="false"  ></TextArea>                    
+                </SplitPane>
+            </children>
+        </HBox>
+    </VBox>
+</VBox>
