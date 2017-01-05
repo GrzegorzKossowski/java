@@ -1,1 +1,3 @@
-<h3>this is header</h3>
+<div id="top-bar">
+    <h3>Simple Phonebook</h3>
+</div>

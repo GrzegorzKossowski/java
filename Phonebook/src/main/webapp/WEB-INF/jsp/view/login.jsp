@@ -2,13 +2,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
+        <title>Login</title>
     </head>
     <body>
         <jsp:include page="../reuse/_header.jsp"></jsp:include>
-        
-        <h1>Hello login!</h1>
-        
+            <form action="login" method="POST">
+                <fieldset>
+                    <legend>Login to Phonebook</legend>
+                    <div class="error-msg">${errorMsg}</div>
+                <label>Login</label><br/>
+                <input type="text" name="login" value="${login}" placeholder="mickey"><br>
+                <label>Password</label><br/>
+                <input type="password" name="password" value="${password}" placeholder="mouse123">
+                <br><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+
         <jsp:include page="../reuse/_footer.jsp"></jsp:include>
     </body>
 </html>

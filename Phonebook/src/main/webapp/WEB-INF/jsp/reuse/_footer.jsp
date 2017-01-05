@@ -1,1 +1,3 @@
-<h3>this is footer</h3>
+<div id="bottom-bar">
+    Copyright &copy; allRight
+</div>
