@@ -1,8 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package servlets;
 
 import beans.Person;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +20,10 @@ import jdbc.JdbcUtil;
  * @author grze
  */
 @WebServlet(
-        name = "personsListServlet",
-        urlPatterns = {"/listPerson"}
+        name = "doEditPersonServlet",
+        urlPatterns = {"/doEditPerson"}
 )
-public class PersonsListServlet extends HttpServlet {
+public class DoEditPersonServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,12 +33,20 @@ public class PersonsListServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
         }
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String phone = request.getParameter("phone");
+        String mobile = request.getParameter("mobile");
+        String email = request.getParameter("email");
         
-        List<Person> persons = JdbcUtil.getPersons();
-
-        request.setAttribute("persons", persons);
-        request.getRequestDispatcher("/WEB-INF/jsp/view/list.jsp").forward(request, response);
-
+        Person person = new Person(id, firstname, lastname, phone, mobile, email);
+        
+        JdbcUtil.updatePerson(person);
+        
+        response.sendRedirect(request.getContextPath() + "/listPerson");
+        
     }
 
     @Override

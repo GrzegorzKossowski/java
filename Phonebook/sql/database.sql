@@ -5,9 +5,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
 -- Schema phonebook
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `phonebook` ;
@@ -60,7 +57,7 @@ INSERT INTO `phonebook`.`user` (`login`, `password`)
 VALUES ('tom', 'tom001'), ('jerry', 'jerry001'), ('mickey', 'mouse123');
 
 INSERT INTO `phonebook`.`person` (`firstname`, `lastname`, `phone`, `mobile`, `email`) 
-VALUES ('Adam', 'Słodowy', '48 229-876-521', '48 792-456-654', 'adam.slodowy@tvp.com'),
-('Barbara', 'Ćwikła', '48 818-724-245', '48 512-654-123', 'barbara.cwikla@example.com'),
-('Cecylia', 'Dławik', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
-('Edward', 'Fąfara', '49 221-852-456', '49 156-225-654', 'fafik@autobahn.de');
+VALUES ('Adam', 'Beka', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com'),
+('Barbara', 'Cep', '48 818-724-245', '48 512-654-123', 'barbara.cep@example.com'),
+('Cecylia', 'Dudek', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
+('Edward', 'Fornal', '49 221-852-456', '49 156-225-654', 'fafik@autobahn.de');

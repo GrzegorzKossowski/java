@@ -8,21 +8,22 @@
     <body>
         <jsp:include page="../reuse/_header.jsp"></jsp:include>
         <jsp:include page="../reuse/_topMenu.jsp"></jsp:include>        
-            <form action="doAddPerson" method="POST">
+            <form action="doEditPerson" method="POST">
                 <fieldset>
                     <legend>Add new Person to Phonebook</legend>
+                    <input type="hidden" name="id" value="${person.id}" />
                     <label>First name</label><br/>
-                    <input type="text" name="firstname" value="Grażyna"><br>
+                    <input type="text" name="firstname" value="${person.firstname}"><br>
                     <label>Last name</label><br/>
-                    <input type="text" name="lastname" value="Hyża"><br>
+                    <input type="text" name="lastname" value="${person.lastname}"><br>
                     <label>Phone</label><br/>
-                    <input type="text" name="phone" value="48 228-789-654"><br>
+                    <input type="text" name="phone" value="${person.phone}"><br>
                     <label>Mobile</label><br/>
-                    <input type="text" name="mobile" value="48 792-258-852"><br>
+                    <input type="text" name="mobile" value="${person.mobile}"><br>
                     <label>Email</label><br/>
-                    <input type="email" name="email" value="graza@gamecon.com"><br>
+                    <input type="email" name="email" value="${person.email}"><br>
                     <br><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Update">
                 </fieldset>
             </form>
         <jsp:include page="../reuse/_footer.jsp"></jsp:include>

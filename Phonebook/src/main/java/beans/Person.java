@@ -46,6 +46,15 @@ public class Person {
         this.email = email;
     }
 
+    public Person(int id, String firstname, String lastname, String phone, String mobile, String email) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.mobile = mobile;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -96,11 +105,8 @@ public class Person {
 
     @Override
     public String toString() {
-        
         return String.format("Person: [%d]\t%s %s\t%s | %s\t%s", 
                 getId(), getFirstname(), getLastname(), getPhone(), getMobile(), getEmail());
-
-//        return "Person{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", phone=" + phone + ", mobile=" + mobile + ", email=" + email + '}';
     }
     
 }

@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
  * @author grze
  */
 @WebServlet(
-        name = "addPersonServlet",
-        urlPatterns = {"/addPerson"}
+        name = "findPersonServlet",
+        urlPatterns = {"/findPerson"}
 )
-public class AddPersonServlet extends HttpServlet {
+public class FindPersonServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,11 +25,10 @@ public class AddPersonServlet extends HttpServlet {
         if (session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
-//            request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
         }
-
-        request.getRequestDispatcher("/WEB-INF/jsp/view/addPerson.jsp").forward(request, response);
-
+        
+        request.getRequestDispatcher("WEB-INF/jsp/view/findPerson.jsp").forward(request, response);
+        
     }
 
     @Override

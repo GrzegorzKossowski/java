@@ -1,5 +1,7 @@
 package servlets;
 
+import beans.User;
+import hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import jdbc.JdbcUtil;
 
 /**
  *
@@ -20,41 +23,45 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         String errorMsg = "";
         boolean isError = false;
         String userLogin = request.getParameter("login");
-        String userPasswq = request.getParameter("password");
+        String userPasswd = request.getParameter("password");
+        User user = new User(userLogin, userPasswd);
 
         if (userLogin == null || userLogin.isEmpty()) {
-//        if (request.getParameter("login").equals("mickey")) {
             isError = true;
-            errorMsg += "Login empty... ";            
+            errorMsg += "Login empty... ";
         }
-        
-        if (userPasswq == null || userPasswq.isEmpty()) {
-//        if (request.getParameter("login").equals("mickey")) {
+
+        if (userPasswd == null || userPasswd.isEmpty()) {
             isError = true;
-            errorMsg += "Password empty... ";            
+            errorMsg += "Password empty... ";
         }
-        
-        if(isError) {
+
+        if (!JdbcUtil.isUserValid(user)) {
+            isError = true;
+            errorMsg += "Invalid user or password";
+        }
+
+        if (isError) {
+            
             request.setAttribute("errorMsg", errorMsg);
-            if(!userPasswq.isEmpty()) {
-                request.setAttribute("login", userPasswq);
-            }
-            if(!userLogin.isEmpty()) {
+            if (!userLogin.isEmpty()) {
                 request.setAttribute("login", userLogin);
             }
-            request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);            
+            if (!userPasswd.isEmpty()) {
+                request.setAttribute("password", userPasswd);
+            }
+            request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
+            
         }
 
-//        HttpSession session = request.getSession(true);
-//        String attr = request.getParameter("login");
-//        session.setAttribute("attr", attr);
-//        System.out.println(session.getAttribute("attr"));
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user.getLogin());
 
-        response.sendRedirect(request.getContextPath() + "/list");
+        response.sendRedirect(request.getContextPath() + "/listPerson");
 
     }
 

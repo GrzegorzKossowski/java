@@ -1,5 +1,6 @@
 package servlets;
 
+import beans.Person;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,16 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import jdbc.JdbcUtil;
 
 /**
  *
  * @author grze
  */
 @WebServlet(
-        name = "addPersonServlet",
-        urlPatterns = {"/addPerson"}
+        name = "doAddPerson",
+        urlPatterns = "/doAddPerson"
 )
-public class AddPersonServlet extends HttpServlet {
+public class DoAddPersonServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,10 +27,25 @@ public class AddPersonServlet extends HttpServlet {
         if (session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
-//            request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("/WEB-INF/jsp/view/addPerson.jsp").forward(request, response);
+        boolean dbError = true;
+        
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String phone = request.getParameter("phone");
+        String mobile = request.getParameter("mobile");
+        String email = request.getParameter("email");
+        
+        Person person = new Person(firstname, lastname, phone, mobile, email);
+        
+        dbError = JdbcUtil.savePerson(person);
+
+        if (dbError) {
+            request.getRequestDispatcher("/WEB-INF/jsp/view/errorAddPerson.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("/WEB-INF/jsp/view/confirmAddPerson.jsp").forward(request, response);
+        }
 
     }
 

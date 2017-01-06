@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package servlets;
 
 import java.io.IOException;
@@ -7,16 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import jdbc.JdbcUtil;
 
 /**
  *
  * @author grze
  */
 @WebServlet(
-        name = "addPersonServlet",
-        urlPatterns = {"/addPerson"}
+        name = "deletePersonServlet",
+        urlPatterns = {"/deletePerson"}
 )
-public class AddPersonServlet extends HttpServlet {
+public class DeletePersonServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,10 +31,12 @@ public class AddPersonServlet extends HttpServlet {
         if (session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
-//            request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("/WEB-INF/jsp/view/addPerson.jsp").forward(request, response);
+        String personId = request.getParameter("id");
+        JdbcUtil.deletePerson(personId);
+
+        response.sendRedirect(request.getContextPath() + "/list");
 
     }
 
