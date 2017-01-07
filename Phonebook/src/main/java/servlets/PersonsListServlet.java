@@ -29,8 +29,9 @@ public class PersonsListServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
         }
-        
-        List<Person> persons = JdbcUtil.getPersons();
+
+        String sql = "SELECT * FROM person";
+        List<Person> persons = JdbcUtil.getPersons(sql);
 
         request.setAttribute("persons", persons);
         request.getRequestDispatcher("/WEB-INF/jsp/view/list.jsp").forward(request, response);

@@ -35,8 +35,7 @@ public class DeletePersonServlet extends HttpServlet {
 
         String personId = request.getParameter("id");
         JdbcUtil.deletePerson(personId);
-
-        response.sendRedirect(request.getContextPath() + "/list");
+        response.sendRedirect(request.getContextPath() + "/listPerson");
 
     }
 

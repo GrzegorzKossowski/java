@@ -1,7 +1,6 @@
 package servlets;
 
 import beans.User;
-import hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user.getLogin());
-
+        
         response.sendRedirect(request.getContextPath() + "/listPerson");
 
     }

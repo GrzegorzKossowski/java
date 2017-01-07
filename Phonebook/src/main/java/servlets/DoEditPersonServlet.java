@@ -41,10 +41,8 @@ public class DoEditPersonServlet extends HttpServlet {
         String mobile = request.getParameter("mobile");
         String email = request.getParameter("email");
         
-        Person person = new Person(id, firstname, lastname, phone, mobile, email);
-        
-        JdbcUtil.updatePerson(person);
-        
+        Person person = new Person(id, firstname, lastname, phone, mobile, email);        
+        JdbcUtil.updatePerson(person);        
         response.sendRedirect(request.getContextPath() + "/listPerson");
         
     }

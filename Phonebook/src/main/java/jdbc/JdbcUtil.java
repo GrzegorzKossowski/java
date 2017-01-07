@@ -91,7 +91,7 @@ public class JdbcUtil {
         
     }
 
-    public static List<Person> getPersons() {
+    public static List<Person> getPersons(String sql) {
 
         List<Person> persons = new ArrayList<>();
 
@@ -100,7 +100,7 @@ public class JdbcUtil {
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
             statement = connection.createStatement();
-            String sql = "SELECT * FROM person";
+//            String sql = "SELECT * FROM person";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {

@@ -17,7 +17,12 @@ public class JdbcTest {
         User user = new User("mickey", "mouse123");
         System.out.println(JdbcUtil.isUserValid(user));
         
-        List<Person> persons = JdbcUtil.getPersons();
+        List<Person> persons = JdbcUtil.getPersons("SELECT * FROM person");
+        for (Person person : persons) {
+            System.out.println(person.toString());
+        }
+        
+        persons = JdbcUtil.getPersons("SELECT * FROM person WHERE firstname='Cecylia'");
         for (Person person : persons) {
             System.out.println(person.toString());
         }
