@@ -24,6 +24,9 @@ public class DoFindPersonServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //resolving polish diactric marks
+        request.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null || session.getAttribute("user").equals("")) {
             response.sendRedirect(request.getContextPath() + "/home");
@@ -51,7 +54,6 @@ public class DoFindPersonServlet extends HttpServlet {
             persons = (List<Person>) session.getAttribute("lastSearch");
         }
 
-        System.out.println(">>>>>>>" + session.getAttribute("lastSearch"));
         request.setAttribute("persons", persons);
         request.getRequestDispatcher("/WEB-INF/jsp/view/list.jsp").forward(request, response);
 

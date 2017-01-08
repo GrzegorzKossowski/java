@@ -11,16 +11,17 @@
             <form action="doAddPerson" method="POST">
                 <fieldset>
                     <legend>Add new Person to Phonebook</legend>
+                    <div class="error-msg">${errorMsg}</div>
                     <label>First name</label><br/>
-                    <input type="text" name="firstname" value="John"><br>
+                    <input type="text" name="firstname" value="" placeholder="John"><br>
                     <label>Last name</label><br/>
-                    <input type="text" name="lastname" value="Doe"><br>
+                    <input type="text" name="lastname" value="" placeholder="Doe"><br>
                     <label>Phone</label><br/>
-                    <input type="text" name="phone" value="48 228-789-654"><br>
+                    <input type="text" name="phone" value="" placeholder="48 22 878965411"><br>
                     <label>Mobile</label><br/>
-                    <input type="text" name="mobile" value="48 792-258-852"><br>
+                    <input type="text" name="mobile" value="" placeholder="48 79 225885261"><br>
                     <label>Email</label><br/>
-                    <input type="email" name="email" value="johndoe@gamecon.com"><br>
+                    <input type="email" name="email" value="" placeholder="johndoe@gamecon.com"><br>
                     <br><br>
                     <input type="submit" value="Submit">
                 </fieldset>

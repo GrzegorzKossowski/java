@@ -12,7 +12,7 @@ DROP SCHEMA IF EXISTS `phonebook` ;
 -- -----------------------------------------------------
 -- Schema phonebook
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `phonebook` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `phonebook` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `phonebook` ;
 
 -- -----------------------------------------------------
@@ -57,7 +57,8 @@ INSERT INTO `phonebook`.`user` (`login`, `password`)
 VALUES ('tom', 'tom001'), ('jerry', 'jerry001'), ('mickey', 'mouse123');
 
 INSERT INTO `phonebook`.`person` (`firstname`, `lastname`, `phone`, `mobile`, `email`) 
-VALUES ('Adam', 'Beka', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com'),
+VALUES ('Łękotka', 'Śródstopa', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com'),
+('Adam', 'Beka', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com'),
 ('Barbara', 'Cep', '48 818-724-245', '48 512-654-123', 'barbara.cep@example.com'),
 ('Cecylia', 'Dudek', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
 ('John', 'Doe', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),

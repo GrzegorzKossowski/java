@@ -22,7 +22,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
+        //resolving polish diactric marks
+        request.setCharacterEncoding("UTF-8");
+
         String errorMsg = "";
         boolean isError = false;
         String userLogin = request.getParameter("login");
@@ -41,11 +44,11 @@ public class LoginServlet extends HttpServlet {
 
         if (!JdbcUtil.isUserValid(user)) {
             isError = true;
-            errorMsg += "Invalid user or password";
+            errorMsg += "<br/>Invalid user or password";
         }
 
         if (isError) {
-            
+
             request.setAttribute("errorMsg", errorMsg);
             if (!userLogin.isEmpty()) {
                 request.setAttribute("login", userLogin);
@@ -54,14 +57,14 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("password", userPasswd);
             }
             request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
-            
+
         }
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user.getLogin());
         session.setAttribute("menu", false);
         session.setAttribute("lastSearch", null);
-        
+
         response.sendRedirect(request.getContextPath() + "/listPerson");
 
     }

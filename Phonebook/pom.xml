@@ -57,6 +57,10 @@
                     <groupId>javax.servlet.jsp.jstl</groupId>
                     <artifactId>jstl-api</artifactId>
                 </exclusion>
+                <!--                <exclusion>
+                    <groupId>org.jboss.logging</groupId>
+                    <artifactId>jboss-logging</artifactId>
+                </exclusion>-->
             </exclusions>
         </dependency>        
         <!--MySQL-->
@@ -71,7 +75,19 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.2.6.Final</version>
             <type>jar</type>
+<!--            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.logging</groupId>
+                    <artifactId>jboss-logging</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
+        <!--Jboss-->
+<!--        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.3.0.Final</version>            
+        </dependency>-->
     </dependencies>
 
     <build>

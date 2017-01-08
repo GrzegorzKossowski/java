@@ -19,7 +19,7 @@ import servlets.LoginServlet;
  */
 public class JdbcUtil {
 
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/phonebook?zeroDateTimeBehavior=convertToNull&useSSL=false";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/phonebook?zeroDateTimeBehavior=convertToNull&useSSL=false&useUnicode=true&characterEncoding=UTF-8";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
     private static final String DB_USER = "root";
