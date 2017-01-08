@@ -59,6 +59,8 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user.getLogin());
+        session.setAttribute("menu", false);
+        session.setAttribute("lastSearch", null);
         
         response.sendRedirect(request.getContextPath() + "/listPerson");
 

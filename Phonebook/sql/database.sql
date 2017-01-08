@@ -60,11 +60,15 @@ INSERT INTO `phonebook`.`person` (`firstname`, `lastname`, `phone`, `mobile`, `e
 VALUES ('Adam', 'Beka', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com'),
 ('Barbara', 'Cep', '48 818-724-245', '48 512-654-123', 'barbara.cep@example.com'),
 ('Cecylia', 'Dudek', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
-('Edward', 'Fornal', '49 221-852-456', '49 156-225-654', 'fafik@autobahn.de'),
+('John', 'Doe', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
+('Jerry', 'Doe', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
+('Marry', 'Doe', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
+('Tom', 'Jerry', '48 645-555-555', '48 741-123-988', 'cecka@example.eu'),
+('John', 'Fornal', '49 221-852-456', '49 156-225-654', 'fafik@autobahn.de'),
 ('Emma','Smith','39 22 968660927','49 22 923842054','Emma.Smith@example.com'),
 ('Olivia','Jones','40 22 386709545','50 22 778207805','Olivia.Jones@example.com'),
 ('Sophia','Taylor','41 22 678286511','51 22 508944842','Sophia.Taylor@example.com'),
-('Ava','Williams','42 22 656340119','52 22 915173285','Ava.Williams@example.com'),
+('John','Williams','42 22 656340119','52 22 915173285','Ava.Williams@example.com'),
 ('Isabella','Brown','43 22 406844525','53 22 584608778','Isabella.Brown@example.com'),
 ('Mia','Davies','44 22 733014974','54 22 433042622','Mia.Davies@example.com'),
 ('Abigail','Evans','45 22 645886679','55 22 103830291','Abigail.Evans@example.com'),
@@ -101,4 +105,3 @@ VALUES ('Adam', 'Beka', '48 229-876-521', '48 792-456-654', 'adam.beka@tvp.com')
 ('Savannah','Morris','76 22 778207805','61 22 904896715','Savannah.Morris@example.com'),
 ('Allison','Hall','77 22 508944842','62 22 197336680','Allison.Hall@example.com'),
 ('Samantha','Ward','78 22 915173285','63 22 968660927','Samantha.Ward@example.com');
-;

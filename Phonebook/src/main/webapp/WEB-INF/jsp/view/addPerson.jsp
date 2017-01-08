@@ -12,15 +12,15 @@
                 <fieldset>
                     <legend>Add new Person to Phonebook</legend>
                     <label>First name</label><br/>
-                    <input type="text" name="firstname" value="Grażyna"><br>
+                    <input type="text" name="firstname" value="John"><br>
                     <label>Last name</label><br/>
-                    <input type="text" name="lastname" value="Hyża"><br>
+                    <input type="text" name="lastname" value="Doe"><br>
                     <label>Phone</label><br/>
                     <input type="text" name="phone" value="48 228-789-654"><br>
                     <label>Mobile</label><br/>
                     <input type="text" name="mobile" value="48 792-258-852"><br>
                     <label>Email</label><br/>
-                    <input type="email" name="email" value="graza@gamecon.com"><br>
+                    <input type="email" name="email" value="johndoe@gamecon.com"><br>
                     <br><br>
                     <input type="submit" value="Submit">
                 </fieldset>

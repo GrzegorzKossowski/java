@@ -30,9 +30,28 @@ public class DoFindPersonServlet extends HttpServlet {
             return;
         }
 
-        String sql = "SELECT * FROM person WHERE firstname='Penelope'";
-        List<Person> persons = JdbcUtil.getPersons(sql);
+        List<Person> persons = null;
 
+        String search = request.getParameter("search");
+        String firstName = request.getParameter("firstname");
+        String lastName = request.getParameter("lastname");
+
+        if (search.equals("true")) {
+            String sql = "SELECT * FROM person WHERE firstname='" + firstName + "' OR lastname='" + lastName + "' ORDER BY lastname, firstname";
+            persons = JdbcUtil.getPersons(sql);
+            session.setAttribute("menu", true);
+            session.setAttribute("lastSearch", persons);
+        } else if (search.equals("false")) {
+            session.setAttribute("menu", false);
+            session.setAttribute("lastSearch", null);
+            System.out.println(">>>>>>>" + session.getAttribute("lastSearch"));
+            response.sendRedirect(request.getContextPath() + "/listPerson");
+            return;
+        } else if (search.isEmpty() || search == null) {
+            persons = (List<Person>) session.getAttribute("lastSearch");
+        }
+
+        System.out.println(">>>>>>>" + session.getAttribute("lastSearch"));
         request.setAttribute("persons", persons);
         request.getRequestDispatcher("/WEB-INF/jsp/view/list.jsp").forward(request, response);
 
