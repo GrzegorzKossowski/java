@@ -12,11 +12,13 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Adds new contact to DB.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
-        name = "doAddPerson",
+        name = "doAddPersonServlet",
         urlPatterns = "/doAddPerson"
 )
 public class DoAddPersonServlet extends HttpServlet {
@@ -34,8 +36,9 @@ public class DoAddPersonServlet extends HttpServlet {
         }
 
         boolean dbError = true;
-        String errorMsg = "";
         boolean isError = false;
+        // message to display in jsp form
+        String errorMsg = "";
 
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
@@ -43,6 +46,7 @@ public class DoAddPersonServlet extends HttpServlet {
         String mobile = request.getParameter("mobile");
         String email = request.getParameter("email");
 
+        //checking f-name and l-name only, assuming that person can have no phone numbers or email
         if (StringUtils.isEmptyOrWhitespaceOnly(firstName) || StringUtils.isEmptyOrWhitespaceOnly(lastName)) {
             isError = true;
             errorMsg = "First name or Last can't be empty";

@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Gets from DB and displays full list of contacts.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "personsListServlet",

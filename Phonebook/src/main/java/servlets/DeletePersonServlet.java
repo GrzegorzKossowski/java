@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlets;
 
 import java.io.IOException;
@@ -15,8 +10,11 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
- *
- * @author grze
+ * Removes contact from database and redirects to contacts list.
+ * If there's no active user's session, redirects to home servlet.
+ * 
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "deletePersonServlet",

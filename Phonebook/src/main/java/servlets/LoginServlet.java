@@ -11,11 +11,13 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Authenticate users. Stores user in session variable. 
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
-        name = "proceedLoginServlet",
+        name = "loginServlet",
         urlPatterns = {"/login"}
 )
 public class LoginServlet extends HttpServlet {
@@ -62,7 +64,9 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         session.setAttribute("user", user.getLogin());
+        // stores information about additional menu (for authenticated users only)
         session.setAttribute("menu", false);
+        // stores information about last search executed (for additional menu only)
         session.setAttribute("lastSearch", null);
 
         response.sendRedirect(request.getContextPath() + "/listPerson");

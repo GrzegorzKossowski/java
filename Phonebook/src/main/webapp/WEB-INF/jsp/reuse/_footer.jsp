@@ -1,3 +1,5 @@
-<div id="bottom-bar">
-    Copyright &copy; allRight
-</div>
+        <div id="bottom-bar">
+            Copyright &copy; allRight
+        </div>
+    </body>
+</html>

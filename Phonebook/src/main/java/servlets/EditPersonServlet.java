@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Gets contact from DB and displays it in jsp form.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "editPersonServlet",

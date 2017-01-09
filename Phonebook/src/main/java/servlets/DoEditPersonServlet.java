@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlets;
 
 import beans.Person;
@@ -17,8 +12,10 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Adds edited contact to DB.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "doEditPersonServlet",
@@ -38,8 +35,9 @@ public class DoEditPersonServlet extends HttpServlet {
             return;
         }
 
-        String errorMsg = "";
         boolean isError = false;
+        // message to display in jsp form
+        String errorMsg = "";
 
         int id = Integer.parseInt(request.getParameter("id"));
         String firstName = request.getParameter("firstname");
@@ -47,9 +45,10 @@ public class DoEditPersonServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String mobile = request.getParameter("mobile");
         String email = request.getParameter("email");
-            
+
         Person person = new Person(id, firstName, lastName, phone, mobile, email);
 
+        //checking f-name and l-name only, assuming that person can have no phone numbers or email
         if (StringUtils.isEmptyOrWhitespaceOnly(firstName) || StringUtils.isEmptyOrWhitespaceOnly(lastName)) {
             isError = true;
             errorMsg = "First name or last name can't be empty";

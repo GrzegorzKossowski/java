@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
+ * Searches first name or last name in DB. Saves last seearch result.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "doFindPersonServlet",
@@ -47,7 +49,6 @@ public class DoFindPersonServlet extends HttpServlet {
         } else if (search.equals("false")) {
             session.setAttribute("menu", false);
             session.setAttribute("lastSearch", null);
-            System.out.println(">>>>>>>" + session.getAttribute("lastSearch"));
             response.sendRedirect(request.getContextPath() + "/listPerson");
             return;
         } else if (search.isEmpty() || search == null) {

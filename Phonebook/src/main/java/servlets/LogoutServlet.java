@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * Logs the user out and removes the session.
+ * Redirects to home.
  *
- * @author grze
+ * @author Grzegorz Kossowski
  */
 @WebServlet(
         name = "logoutServlet",

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author grze
+ * Displays a form to add a new contact.
+ * If there's no active user's session, redirects to home servlet.
+ * 
+ * @author Grzegorz Kossowski
  */
 @WebServlet(
         name = "addPersonServlet",

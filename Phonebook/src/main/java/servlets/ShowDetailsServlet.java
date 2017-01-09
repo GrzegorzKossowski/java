@@ -11,8 +11,11 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
- *
- * @author grze
+ * Shows details about selected contact.
+ * If there's no active user's session, redirects to home servlet.
+ * 
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
         name = "showDetailsServlet",

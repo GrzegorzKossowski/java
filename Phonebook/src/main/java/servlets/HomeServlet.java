@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Displays welcome-login form.
  *
- * @author grze
+ * @author Grzegorz Kossowski
+ * @version 1.0
  */
 @WebServlet(
-        name = "loginServlet",
+        name = "homeServlet",
         urlPatterns = {"/home"},
         loadOnStartup = 1
 )
