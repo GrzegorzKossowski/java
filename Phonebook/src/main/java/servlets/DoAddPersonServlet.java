@@ -2,6 +2,7 @@ package servlets;
 
 import beans.Person;
 import com.mysql.jdbc.StringUtils;
+import hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import jdbc.JdbcUtil;
 
 /**
  * Adds new contact to DB.
@@ -56,18 +56,22 @@ public class DoAddPersonServlet extends HttpServlet {
             request.setAttribute("errorMsg", errorMsg);
             request.getRequestDispatcher("/WEB-INF/jsp/view/addPerson.jsp").forward(request, response);
         } else {
-            
+
             Person person = new Person(firstName, lastName, phone, mobile, email);
+            /*
+            // If using Glassfish, must work with JdbcUtil class. 
+            // At this moment Glassfish & Hibernate & JEE don't cooperate well.
             dbError = JdbcUtil.savePerson(person);
+             */
+            dbError = HibernateUtil.savePerson(person);
 
             if (dbError) {
                 request.getRequestDispatcher("/WEB-INF/jsp/view/errorAddPerson.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("/WEB-INF/jsp/view/confirmAddPerson.jsp").forward(request, response);
             }
-            
+
         }
-        
 
     }
 

@@ -2,6 +2,7 @@ package servlets;
 
 import beans.Person;
 import com.mysql.jdbc.StringUtils;
+import hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import jdbc.JdbcUtil;
 
 /**
  * Adds edited contact to DB.
@@ -59,7 +59,12 @@ public class DoEditPersonServlet extends HttpServlet {
             request.setAttribute("person", person);
             request.getRequestDispatcher("/WEB-INF/jsp/view/editPerson.jsp").forward(request, response);
         } else {
+            /*
+            // If using Glassfish, must work with JdbcUtil class. 
+            // At this moment Glassfish & Hibernate & JEE don't cooperate well.
             JdbcUtil.updatePerson(person);
+             */
+            HibernateUtil.updatePerson(person);
             response.sendRedirect(request.getContextPath() + "/listPerson");
         }
 

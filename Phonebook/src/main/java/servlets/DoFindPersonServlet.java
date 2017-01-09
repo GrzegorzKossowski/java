@@ -1,6 +1,7 @@
 package servlets;
 
 import beans.Person;
+import hibernate.HibernateUtil;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import jdbc.JdbcUtil;
 
 /**
  * Searches first name or last name in DB. Saves last seearch result.
@@ -42,8 +42,17 @@ public class DoFindPersonServlet extends HttpServlet {
         String lastName = request.getParameter("lastname");
 
         if (search.equals("true")) {
+
+            /*
+            // If using Glassfish, must work with JdbcUtil class. 
+            // At this moment Glassfish & Hibernate & JEE don't cooperate well.
             String sql = "SELECT * FROM person WHERE firstname='" + firstName + "' OR lastname='" + lastName + "' ORDER BY lastname, firstname";
             persons = JdbcUtil.getPersons(sql);
+             */
+            
+            String sql = "FROM Person p WHERE p.firstname='" + firstName + "' OR p.lastname='" + lastName + "' ORDER BY lastname, firstname";
+            persons = HibernateUtil.getPersons(sql);
+
             session.setAttribute("menu", true);
             session.setAttribute("lastSearch", persons);
         } else if (search.equals("false")) {
