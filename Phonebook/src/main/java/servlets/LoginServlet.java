@@ -1,6 +1,7 @@
 package servlets;
 
 import beans.User;
+import hibernate.HibernateUtil;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import jdbc.JdbcUtil;
 
 /**
- * Authenticate users. Stores user in session variable. 
+ * Authenticate users. Stores user in session variable.
  *
  * @author Grzegorz Kossowski
  * @version 1.0
@@ -29,7 +30,7 @@ public class LoginServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-        
+
         String errorMsg = "";
         boolean isError = false;
         String userLogin = request.getParameter("login");
@@ -46,7 +47,12 @@ public class LoginServlet extends HttpServlet {
             errorMsg += "Password empty... ";
         }
 
+        /*
+        // If using Glassfish, must work with JdbcUtil class. 
+        // At this moment Glassfish & Hibernate & JEE don't cooperate well.
         if (!JdbcUtil.isUserValid(user)) {
+         */
+        if (!HibernateUtil.isUserValid(user)) {
             isError = true;
             errorMsg += "<br/>Invalid user or password";
         }
@@ -63,14 +69,17 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/jsp/view/login.jsp").forward(request, response);
 
         } else {
-            
+
             session.setAttribute("user", user.getLogin());
             // stores information about additional menu (for authenticated users only)
             session.setAttribute("menu", false);
             // stores information about last search executed (for additional menu only)
             session.setAttribute("lastSearch", null);
+            // stores information about last query (for lastSearch querying)
+            session.setAttribute("lastQuery", null);
+
             response.sendRedirect(request.getContextPath() + "/listPerson");
-            
+
         }
 
     }

@@ -55,9 +55,11 @@ public class DoFindPersonServlet extends HttpServlet {
 
             session.setAttribute("menu", true);
             session.setAttribute("lastSearch", persons);
+            session.setAttribute("lastQuery", sql);
         } else if (search.equals("false")) {
             session.setAttribute("menu", false);
             session.setAttribute("lastSearch", null);
+            session.setAttribute("lastQuery", null);            
             response.sendRedirect(request.getContextPath() + "/listPerson");
             return;
         } else if (search.isEmpty() || search == null) {

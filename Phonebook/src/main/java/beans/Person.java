@@ -9,8 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
+ * Stores information about contact in PhoneBook
  *
- * @author grze
+ * @author Grzegorz Kossowski
  */
 @Entity
 @Table(name="person")

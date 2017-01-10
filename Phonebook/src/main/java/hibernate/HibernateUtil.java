@@ -2,7 +2,6 @@ package hibernate;
 
 import beans.Person;
 import beans.User;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,12 +14,19 @@ import org.hibernate.service.ServiceRegistry;
  * Hibernate Utility class with a convenient method to get Session Factory
  * object.
  *
- * @author grze
+ * @author Grzegorz Kossowski
  */
 public class HibernateUtil {
 
+    /**
+     * Singleton containing hibernate session factory
+     */
     private static SessionFactory sessionFactory;
 
+    /**
+     * Returns hibernate session factory singleton.
+     * @return sessionFactory
+     */
     public static SessionFactory getSessionFactory() {
 
         if (sessionFactory == null) {
@@ -33,27 +39,30 @@ public class HibernateUtil {
                             .applySettings(configuration.getProperties()).build();
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-//            sessionFactory = configuration.buildSessionFactory();
         }
 
         return sessionFactory;
 
     }
 
+    /**
+     * Closes hibernate session factory
+     */
     public static void closeSessionFactory() {
 
         if (sessionFactory != null) {
             sessionFactory.close();
         }
 
-        System.out.println("Closing sessionFactory");
-
     }
 
+    /**
+     * Returns boolean value if the user is valid or not
+     * @param user
+     * @return 
+     */
     public static boolean isUserValid(User user) {
 
-//        sessionFactory = HibernateUtil.getSessionFactory();
-//        Session session = sessionFactory.openSession();
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<User> users = null;
 
@@ -77,6 +86,11 @@ public class HibernateUtil {
 
     }
 
+    /**
+     * Gets list of contacts (Persons instances) from DB
+     * @param sql String value of hibernate language query
+     * @return 
+     */
     public static List<Person> getPersons(String sql) {
 
         List<Person> persons = null;
@@ -95,10 +109,14 @@ public class HibernateUtil {
             session.close();
         }
         
-        //code between
         return persons;
     }
 
+    /**
+     * Returns single person from DB
+     * @param personId - String value of person ID
+     * @return 
+     */
     public static Person getPerson(String personId) {
 
         Session session = null;
@@ -121,6 +139,11 @@ public class HibernateUtil {
         return person;
     }
 
+    /**
+     * Saves single person to DB
+     * @param person - instance of Person class
+     * @return 
+     */
     public static boolean savePerson(Person person) {
 
         boolean error = false;
@@ -143,6 +166,10 @@ public class HibernateUtil {
         return error;
     }
 
+    /**
+     * Removes person from DB
+     * @param personId - String value of person's ID
+     */
     public static void deletePerson(String personId) {
 
         Session session = null;
@@ -169,6 +196,10 @@ public class HibernateUtil {
         
     }
 
+    /**
+     * Updates person's data in DB
+     * @param person - instance of Person class
+     */
     public static void updatePerson(Person person) {
         
         Session session = null;

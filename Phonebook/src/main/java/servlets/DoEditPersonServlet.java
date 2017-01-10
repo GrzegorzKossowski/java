@@ -4,6 +4,7 @@ import beans.Person;
 import com.mysql.jdbc.StringUtils;
 import hibernate.HibernateUtil;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,6 +66,19 @@ public class DoEditPersonServlet extends HttpServlet {
             JdbcUtil.updatePerson(person);
              */
             HibernateUtil.updatePerson(person);
+
+            // update last search cache
+            if (session.getAttribute("lastSearch") != null) {
+                /*
+                // If using Glassfish, must work with JdbcUtil class. 
+                // At this moment Glassfish & Hibernate & JEE don't cooperate well.
+                persons = JdbcUtil.getPersons(sql);
+                 */
+                String sql = (String) session.getAttribute("lastQuery");
+                List<Person> lastPersons = HibernateUtil.getPersons(sql);
+                session.setAttribute("lastSearch", lastPersons);
+            }
+
             response.sendRedirect(request.getContextPath() + "/listPerson");
         }
 
