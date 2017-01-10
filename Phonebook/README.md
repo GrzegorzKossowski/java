@@ -4,19 +4,22 @@ Simple JEE phonebook test for Decsoft S.A.
 ---
 Known issues:
 
-3. ~~**TODO**: Last search list doesn't update after edit/delete.~~
+**Bug 003**
+~~**TODO**: Last search list doesn't update after edit/delete.~~
  ```java
   java.lang.IllegalArgumentException: attempt to create delete event with null entity
  ```
 
-2. ~~hibernate & JEE error. No solution on web :-(. Plain java works fine. JEE does not...~~
+**Bug 002**
+~~hibernate & JEE error. No solution on web :-(. Plain java works fine. JEE does not...~~
  ```java
  java.lang.NoSuchMethodError: org.hibernate.internal.CoreMessageLogger.debugf(Ljava/lang/String;I)V
  ```
  Problem solved: use **Tomcat** vs. ~~Glassfish~~
 
-1. ~~polish diactric marks don't show properly~~
+**Bug 001**
+~~polish diactric marks don't show properly~~
  ```java
  Severe:   java.sql.SQLException: Incorrect string value: '\xC5?\xC4?cz...' for column 'firstname' at row 1
  ```
- Problem solved: use **Tomcat** vs. ~~Glassfish~~
+ Problem solved
