@@ -9,4 +9,4 @@ author: Grzegorz Kossowski
 
 Wersja ostateczna.
 
-![alt Enigmator][enigmator.png]
+![alt Enigmator][enigmator]
