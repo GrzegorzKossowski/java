@@ -6,6 +6,8 @@ author: Grzegorz Kossowski
 ----
 Wersja rozwojowa...
 
+![alt GBC][GBC.png]
+
 **TODO:**
 
 - zapisywanie stanu oraz eksport gamebooka do txt, rtf, pdf(?), epub itp.

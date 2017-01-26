@@ -1,5 +1,5 @@
 # Phonebook
-Simple JEE phonebook test for Decsoft S.A.
+Simple JEE phonebook entry level test for Decsoft S.A.
 
 ---
 Known issues:
