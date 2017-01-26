@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+    <title>Find form</title>
+    <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div th:replace="fragments :: mainTitle"></div>
+<div th:replace="fragments :: mainMenu"></div>
+<h3 th:text="${formTitle}">Form template static</h3>
+<form action="form.html" th:action="@{/find}" th:object="${person}" method="post">
+    <input type="hidden" />
+
+    First name:
+    <input type="text" name="firstName"/><br/>
+    Last name:
+    <input type="text" name="lastName"/><br/>
+
+    <input type="submit"/>
+</form>
+</body>
+</html>

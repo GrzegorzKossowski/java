@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+    <title>Home Page Static</title>
+    <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div th:replace="fragments :: mainTitle"></div>
+<h3>Welcome to the best PhoneBook Ever!</h3>
+<!--<a href="login.html" th:href="@{/login}" class="button">Login</a>-->
+<a href="list.html" th:href="@{/list}" class="button">Show list</a>
+</body>
+</html>

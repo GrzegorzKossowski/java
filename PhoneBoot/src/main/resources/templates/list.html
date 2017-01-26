@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: header">
+    <title>Home Page Static</title>
+    <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div th:replace="fragments :: mainTitle"></div>
+<div th:replace="fragments :: mainMenu"></div>
+<h3>List</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody th:remove="all-but-first">
+    <tr th:each="person : ${persons}">
+        <td th:text="|${person.firstName} ${person.lastName}|">John Doe</td>
+        <td th:text="${person.phone}">XXX</td>
+        <td th:text="${person.mobile}">XXX</td>
+        <td><a href="form.html" th:href="@{|/form/${person.id}|}" class="button">Edit</a>
+            |
+            <a href="form.html" th:href="@{|/delete/${person.id}|}" class="button"
+               onclick="if (!(confirm('Delete?'))) return false">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:replace="fragments :: footer"></div>
+</body>
+</html>
