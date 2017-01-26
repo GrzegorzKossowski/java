@@ -9,4 +9,4 @@ author: Grzegorz Kossowski
 
 Wersja ostateczna.
 
-![alt Enigmator][enigmator]
+![alt Enigmator](https://cloud.githubusercontent.com/assets/10084450/22322412/3d2a0760-e39c-11e6-94ff-7e1b511566e3.png)
