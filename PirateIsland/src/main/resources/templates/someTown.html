@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" ng-app="myApp">
+<head>
+    <title th:tiext="${townMarket.name}">Some Town</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="center">
+    <h1 th:text="${townMarket.name}">Banana Town</h1>
+    <hr/>
+    <img src="../static/images/ducat.svg" width="16" height="16" th:src="@{images/ducat.svg}" th:width="24"
+         th:heigth="24"/>
+    <span id="ducat"></span>
+    <table cellpadding="10">
+        <thead>
+        <tr>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Action</td>
+            <td>Ship</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><img src="../static/images/beans.svg" width="24" height="24" data-th-src="@{/images/beans.svg}"
+                     th:width="24"
+                     th:height="24"/></td>
+            <td><span id="beansprice" th:text="${townMarket.beansPrice}"></span></td>
+            <td>
+                <button type="button" id="buy">Buy</button>
+                |
+                <button type="button" id="sell">Sell</button>
+            </td>
+            <td>
+                <span id="shipbeansamount"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action="someTown.html" th:action="@{/someTown}" th:object="${ship}" method="post">
+        <input type="hidden" id="money" th:field="*{money}" th:value="${ship.money}"/><br/>
+        <input type="hidden" id="beans" th:field="*{beans}" th:value="${ship.beans}"/><br/>
+        <input type="submit" value="Trade!"/>
+    </form>
+
+    <br/>
+    <a class="button" href="mainMap.html" th:href="@{/mainMap}">Sail to sea, Mate!</a><br/><br/><br/>
+    <br/>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
+</body>
+</html>

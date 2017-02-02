@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" ng-app="myApp">
+<head>
+    <title>Banana Town</title>
+    <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body ng-app="myApp" >
+<div class="center" ng-controller="AppController as ctrl">
+    <h1>Banana Town</h1>
+
+    <label>Cena grochu: <span ng-bind="ctrl.cena"></span></label><br/>
+    Zasoby: <span ng-bind="ctrl.zasoby"></span> zuscoinów<br/><br/>
+    <div>
+        <img src="" th:src="@{/images/beans.svg}" th:width="24" th:height="24" />
+        Kup grochu: <button ng-click="ctrl.substractOne()" style="background-color: red;">-</button>
+        <span ng-bind="ctrl.groch"></span> pcs.<input class="input-field" type="hidden" value="{{ctrl.groch}}" size="5" />
+        <button ng-click="ctrl.addOne()" style="background-color: green;">+</button>
+        łącznie: <span ng-bind="ctrl.kwota"></span> zuscoinów;<br/>
+    </div>
+
+    <br/><br/><br/>
+    <a href="mainMap.html" th:href="@{/mainMap}"><img src="" th:src="@{/images/pirate-ship.svg}" width="32" height="32" th:width="64" th:height="64"/></a>
+    <br/><br/><br/>
+    <a class="button" href="mainMap.html" th:href="@{/mainMap}">Sail to sea, Mate!</a><br/><br/><br/>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script>
+      angular.module('myApp', [])
+      .controller('AppController', [function() {
+          var self = this;
+          self.zasoby = 1000;
+          self.cena= 16;
+          self.kwota = 0;
+          self.groch= 0;
+          self.addOne = function() {
+            if((self.zasoby-self.cena)>=0) {
+              self.groch++;
+              self.kwota = self.cena * self.groch;
+              self.zasoby -= self.cena;
+            }
+          };
+          self.substractOne = function() {
+            if(self.groch > 0) {
+              self.groch--;
+              self.kwota = self.cena * self.groch;
+              self.zasoby += parseInt(self.cena);
+            }
+          };
+      }]);
+  </script>
+
+</body>
+</html>

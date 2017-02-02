@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+     <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}" />
+    <meta charset="utf-8"/>
+</head>
+<body>
+<img id="main-map" src="../../../images/map.png" width="800" height="600" border="0" usemap="#map"
+     th:attr="src=@{/images/map.png}"/>
+
+<map name="map">
+    <area shape="circle" coords="439,123,25" href="/banana" alt="Banana" />
+    <area shape="circle" coords="355,351,25" href="/santoFlamingo" alt="Santo Flamingo" />
+    <area shape="circle" coords="133,270,25" href="/bocaDeMuerte" alt="Boca De Muerte" />
+    <area shape="circle" coords="634,397,50" href="/someTown" alt="Some Town" />
+</map>
+</body>
+</html>
