@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cargo</title>
+    <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div class="center">
+    <h1>You've found lost cargo</h1>
+    <img src="../../../images/crate.svg" width="64" height="64" data-th-src="@{images/crate.svg}" th:width="64"
+         th:heigth="64"/>
+    <p>
+        <span data-th-text="${adv}"/>
+    </p>
+    <br/>
+    <a class="button" href="mainMap.html" th:href="@{${link}}">Sail away, Mate!</a><br/>
+    <br/>
+</div>
+</body>
+</html>
