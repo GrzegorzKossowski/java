@@ -3,7 +3,7 @@
 **Done!**
 
 * Factory
-* Abstract Facytory
+* Abstract Factory
 * Auto ThreadSafe Singleton Pattern
 * Prototype
 * Facade
