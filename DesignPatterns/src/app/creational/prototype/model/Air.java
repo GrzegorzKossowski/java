@@ -12,6 +12,6 @@ public class Air extends Element {
 
     @Override
     public void scream() {
-        System.out.println("\n>>> Wiuuuuuuuuuuu, szzzzz.... Air");
+        System.out.println(">>> Wiuuuuuuuuuuu, szzzzz.... Air");
     }
 }

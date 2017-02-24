@@ -12,7 +12,7 @@ public class Water extends Element {
 
     @Override
     public void scream() {
-        System.out.println("\n>>> Chhhhhlllluuuuppppp.... water");
+        System.out.println(">>> Chhhhhlllluuuuppppp.... water");
     }
 
 }

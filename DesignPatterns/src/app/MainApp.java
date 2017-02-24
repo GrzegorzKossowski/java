@@ -1,5 +1,8 @@
 package app;
 
+import app.behavioral.observer.model.Bee;
+import app.behavioral.observer.model.Hive;
+import app.behavioral.observer.model.Worker;
 import app.creational.abstractfactory.AbstractFactory;
 import app.creational.abstractfactory.FactoryType;
 import app.creational.abstractfactory.UnitFactoryProducer;
@@ -13,6 +16,7 @@ import app.model.HumanUnit;
 import app.creational.factory.HumanUnitFactory;
 import app.model.OrcUnit;
 import app.model.UnitType;
+import app.structural.facade.UnitMaker;
 
 /**
  * DesignPatterns
@@ -47,12 +51,27 @@ public class MainApp {
         System.out.println(hqSingleton.hashCode());
 
         //Prototype pattern
+        System.out.println("\n//Prototype");
         ElementCache.loadCache();
         Element element1 = ElementCache.getElement(ElementType.AIR);
         element1.scream();
         element1 = ElementCache.getElement(ElementType.FIRE);
         element1.scream();
 
+        //Facade
+        System.out.println("\n//Facade");
+        UnitMaker unitMaker = new UnitMaker();
+        unitMaker.attackHumanCavlary();
+
+        //Observer
+        System.out.println("\n//Observer");
+        Hive hive = new Hive();
+        Bee bee = new Worker(hive);
+        bee.updateHoneyAmount();
+        bee.getHoneyInHive();
+        hive.setHoneyAmount(15);
+        bee.updateHoneyAmount();
+        bee.getHoneyInHive();
 
     }
 }

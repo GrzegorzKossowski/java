@@ -12,6 +12,6 @@ public class Earth extends Element {
 
     @Override
     public void scream() {
-        System.out.println("\n>>> Szzzzz.... Grrrrrr... Duuuu duuuu Earth");
+        System.out.println(">>> Szzzzz.... Grrrrrr... Duuuu duuuu Earth");
     }
 }

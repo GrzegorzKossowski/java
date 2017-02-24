@@ -12,6 +12,6 @@ public class Fire extends Element {
 
     @Override
     public void scream() {
-        System.out.println("\n>>> Trzask, trzask, aaaaaaa... parzy! Fire");
+        System.out.println(">>> Trzask, trzask, aaaaaaa... parzy! Fire");
     }
 }
