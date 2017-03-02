@@ -16,6 +16,7 @@ import app.model.HumanUnit;
 import app.creational.factory.HumanUnitFactory;
 import app.model.OrcUnit;
 import app.model.UnitType;
+import app.others.ChainPattern;
 import app.structural.facade.UnitMaker;
 
 /**
@@ -72,6 +73,11 @@ public class MainApp {
         hive.setHoneyAmount(15);
         bee.updateHoneyAmount();
         bee.getHoneyInHive();
+
+        //Others - chain pattern
+        System.out.println("\n//chainPattern");
+        System.out.println(new ChainPattern().setName("chain pattern").setValue(37).toString());
+
 
     }
 }

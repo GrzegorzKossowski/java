@@ -8,6 +8,7 @@
 * Prototype
 * Facade
 * Observer
+* Others - Chain
 
 ---
 **TO DO:**
