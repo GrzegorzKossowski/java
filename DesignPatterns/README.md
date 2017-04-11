@@ -2,13 +2,14 @@
 ---
 **Done!**
 
+* Command
+* Observer
+* Strategy
+
 * Factory
 * Abstract Factory
-* Auto ThreadSafe Singleton Pattern
-* Prototype
-* Facade
-* Observer
-* Others - Chain
+* Decorator
+* Others - Chain methods
 
 ---
 **TO DO:**
@@ -18,18 +19,16 @@
 * Bridge
 * Filter
 * Composite
-* Decorator
 * Flyweight
 * Proxy
 * Chain of Resp.
-* Command
 * Interpreter
 * Iterator
 * Mediator
 * Memento
 * State
+* Singleton Thread safe
 * Null
-* Strategy
 * Template
 * Visitor
 others...
