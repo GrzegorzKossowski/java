@@ -5,7 +5,6 @@
 * Command
 * Observer
 * Strategy
-
 * Factory
 * Abstract Factory
 * Decorator
