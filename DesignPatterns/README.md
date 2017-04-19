@@ -2,19 +2,21 @@
 ---
 **Done!**
 
+* Abstract Factory
+* Adapter -
+* Builder
 * Command
+* Decorator
 * Observer
 * Strategy
-* Factory
-* Abstract Factory
-* Decorator
-* Others - Chain methods
+* Facade
+* Factory (method)
+* Template
+* Others - Chain of methods
 
 ---
 **TO DO:**
 
-* Builder
-* Adapter
 * Bridge
 * Filter
 * Composite
@@ -28,6 +30,5 @@
 * State
 * Singleton Thread safe
 * Null
-* Template
 * Visitor
 others...
