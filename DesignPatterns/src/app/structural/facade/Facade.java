@@ -53,7 +53,7 @@ class ArmyFacade {
                 ((Elf) a).play();
             } else if (a instanceof Orc){
                 ((Orc) a).dance();
-            } else throw new NoSuchObjectException(new String("dsf"));
+            } else throw new NoSuchObjectException(new String("Lorem ipsum..."));
         }
     }
 
