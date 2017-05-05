@@ -3,7 +3,7 @@
 **Done!**
 
 * Abstract Factory
-* Adapter -
+* Adapter
 * Builder
 * Command
 * Decorator

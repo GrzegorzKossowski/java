@@ -7,7 +7,6 @@ package app.behavioral.strategy;
 public class Strategy {
 
     public static void main(String[] args) {
-        //TODO:
         Bee gucio = new Worker();
         System.out.println(gucio.getRank());
 

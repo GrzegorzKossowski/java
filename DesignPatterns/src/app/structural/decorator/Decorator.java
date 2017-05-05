@@ -7,7 +7,6 @@ package app.structural.decorator;
 public class Decorator {
 
     public static void main(String[] args) {
-        //TODO:
 
         Hit strongHit = new Kick();
         System.out.println(strongHit.power());

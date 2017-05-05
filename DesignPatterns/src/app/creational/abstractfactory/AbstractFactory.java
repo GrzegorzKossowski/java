@@ -9,7 +9,6 @@ import app.creational.UnitType;
 public class AbstractFactory {
 
     public static void main(String[] args) {
-        //TODO:
         UnitFactory unitFactory = new OrcUnitFactory();
         Unit unit = unitFactory.createUnit(UnitType.ORC);
         unit.fight();

@@ -9,7 +9,6 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 public class Adapter {
 
     public static void main(String[] args) {
-        //TODO:
         ElfUnit elfUnit = new Elf();
         OrcUnit orcUnit = new Orc();
 
